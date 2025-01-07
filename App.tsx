@@ -8,19 +8,19 @@ function App(): React.JSX.Element {
   const [user, setUser] = useState<any>(null);
   const onAuthStateChanged = (user: any) => {
     console.log('Estado de autenticación cambiado:', user);
-    setUser(user);    
+    setUser(user);
   };
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
     return subscriber;
   }, []);
 
- return (  
-      <TaskProvider> 
-        <NavigationContainer>
-          <StackNavigation user={user} />
-        </NavigationContainer>
-      </TaskProvider>
+  return (
+    <TaskProvider>
+      <NavigationContainer>
+        <StackNavigation user={user} />
+      </NavigationContainer>
+  </TaskProvider>
   );
 }
 

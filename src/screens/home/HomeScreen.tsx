@@ -3,13 +3,13 @@ import { View, Text } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import { CommonActions, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParams } from '../../routes/StackNavigation'; 
+import { RootStackParams } from '../../routes/StackNavigation';
 import { ButtonComponent } from '../../components/ButtonComponent';
 import { styles } from '../../theme/styles';
 
+export const HomeScreen = () => {  // se exporta la funcion
 
-export const HomeScreen = () => {
-  const navigation = useNavigation<StackNavigationProp<RootStackParams>>();
+  const navigation = useNavigation<StackNavigationProp<RootStackParams>>(); // se usa el hook para obtener la navegacion
 
   const logout = async () => {
     try {
@@ -21,25 +21,25 @@ export const HomeScreen = () => {
             routes: [{ name: 'Login' }],
           })
         );
-      }, 500); 
+      }, 500);
     } catch (error) {
       console.error('Error al cerrar sesión:', error);
     }
   };
 
-  const handleTaskList = () => {
-    console.log('Lista de tareas');
-  };
-
+  // eliminos haciones de consola y agrego las funciones del ButtonComponent para ejecutar las vistas
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Bienvenido</Text>
       <ButtonComponent onAction={logout} label="Cerrar Sesión" />
       <ButtonComponent
-            label="Agregar Tarea"
-            onAction={() => navigation.navigate('AddTask')}
-          />
-      <ButtonComponent onAction={handleTaskList} label="Lista de Tareas" />
+        label="Agregar Tarea"
+        onAction={() => navigation.navigate('AddTask')}
+      />
+      <ButtonComponent
+        label="Lista de Tareas"
+        onAction={() => navigation.navigate('TaskList')}
+      />
     </View>
   );
 };

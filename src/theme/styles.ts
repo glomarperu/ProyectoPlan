@@ -7,10 +7,10 @@ export const colors = {
     danger: '#ff4d4d', // Nuevo color para el botón de eliminar
     white: '#3D656C',      // Color para textos secundarios
     background: '#abd5d5', // Color de fondo
-    
-};    
 
-export const styles = StyleSheet.create({      
+};
+
+export const styles = StyleSheet.create({
     button: {
         backgroundColor: colors.primary,
         padding: 10,
@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         padding: 20,
         backgroundColor: colors.background, // Fondo general
-    }, 
+    },
     input: {
         borderWidth: 1,
         borderColor: 'gray',
@@ -63,5 +63,37 @@ export const styles = StyleSheet.create({
         borderColor: '#ccc',
         borderRadius: 5,
         marginBottom: 15,
+    },
+    noTasks: {
+        fontSize: 16,
+        textAlign: 'center',
+        color: colors.white,
+        marginTop: 50,
+    },
+    taskItem: {
+        backgroundColor: '#E0F7FA',
+        padding: 10,
+        marginVertical: 10,
+        borderRadius: 8,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
+    },
+    taskName: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: colors.dark,
+    },
+    taskNameSecundario: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        color: colors.dark,
+    },
+    taskDescription: {
+        fontSize: 14,
+        color: colors.white,
+        marginTop: 5,
     },
 });

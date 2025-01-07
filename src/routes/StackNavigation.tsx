@@ -6,55 +6,57 @@ import { HomeScreen } from '../screens/home/HomeScreen';
 import { CommonActions, useNavigation } from '@react-navigation/native';
 import auth from '@react-native-firebase/auth';
 import { AddTaskScreen } from '../screens/tasks/AddTaskScreen';
+import { TaskListScreen } from '../screens/tasks/TaskListScreen';
 
-export type RootStackParams = {
-  Login: undefined;
-  Register: undefined;
-  Home: undefined;
-  AddTask: undefined;
+export type RootStackParams = { // se crea el tipo de dato
+    Login: undefined;
+    Register: undefined;
+    Home: undefined;
+    AddTask: undefined;
+    TaskList: undefined;
 };
 
-const Stack = createStackNavigator<RootStackParams>();
+const Stack = createStackNavigator<RootStackParams>(); // se crea el tipo de dato para el stack
 
-interface StackNavigationProps {
-  user: any; // Ajusta el tipo según Firebase Auth
+interface StackNavigationProps { // se crea el tipo de dato para la navegación
+    user: any; // Ajusta el tipo según Firebase Auth
 }
 
-export const StackNavigation = ({ user }: StackNavigationProps) => {
-  const navigation = useNavigation();
-  // Escuchar cambios en el estado de autenticación
-  useEffect(() => {
-    const unsubscribe = auth().onAuthStateChanged((user) => {
-      if (!user) {
-        // Si no hay usuario, redirigir a la pantalla de Login
-        navigation.dispatch(
-          CommonActions.reset({
-            index: 0,
-            routes: [{ name: 'Login' }],
-          })
-        );
-      }
-    });
-    return unsubscribe;
-  }, [navigation]);
+export const StackNavigation = ({ user }: StackNavigationProps) => { // se crea la función de navegación
+    const navigation = useNavigation(); // se obtiene la navegación
+    
+    useEffect(() => { // se crea el efecto para la navegación
+        const unsubscribe = auth().onAuthStateChanged((user) => { // se obtiene el estado de autenticación
+            if (!user) { // si no hay usuario
+                navigation.dispatch( // se despliega la pantalla de login
+                    CommonActions.reset({ // se resetea la navegación
+                        index: 0, 
+                        routes: [{ name: 'Login' }], 
+                    })
+                );
+            }
+        });
+        return unsubscribe; 
+    }, [navigation]); // se obtiene la navegación para el efecto
 
-  return (
-    <Stack.Navigator>
-      {user ? (
-        <>
-          <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="AddTask" component={AddTaskScreen} />
-        </>
-      ) : (
-        <>
-          <Stack.Screen
-            name="Login"
-            component={LoginScreen}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen name="Register" component={RegisterScreen} />
-        </>
-      )}
-    </Stack.Navigator>
-  );
+    return (
+        <Stack.Navigator> 
+            {user ? ( 
+                <>
+                    <Stack.Screen name="Home" component={HomeScreen} />
+                    <Stack.Screen name="AddTask" component={AddTaskScreen} />
+                    <Stack.Screen name="TaskList" component={TaskListScreen} />
+                </>
+            ) : ( 
+                <>
+                    <Stack.Screen
+                        name="Login"
+                        component={LoginScreen}
+                        options={{ headerShown: false }}
+                    />
+                    <Stack.Screen name="Register" component={RegisterScreen} />
+                </>
+            )}
+        </Stack.Navigator>
+    );
 };

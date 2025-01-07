@@ -7,7 +7,7 @@ import { RootStackParams } from '../../routes/StackNavigation';
 import { styles } from '../../theme/styles';
 import { ButtonComponent } from '../../components/ButtonComponent';
 
-export const EditTaskScreen = () => { // 
+export const EditTaskScreen = () => { 
 
     const { updateTask, tasks } = useContext(TaskContext)!; // obteniendo el contexto de la tarea
     const route = useRoute<RouteProp<RootStackParams, 'EditTask'>>(); // obteniendo la ruta actual

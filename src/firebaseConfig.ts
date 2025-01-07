@@ -10,8 +10,10 @@ const firebaseConfig = {
   appId: "1:962720671484:web:ed5c9a476a3c7fde785979",
 };
 // Inicializa Firebase solo si no hay instancias activas
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) { 
+  firebase.initializeApp(firebaseConfig); 
 }
 // Exporta Firestore para usarlo en otros módulos
-export const db = firestore();
+export const db = firestore(); 
+
+//

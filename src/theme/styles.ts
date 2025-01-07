@@ -31,4 +31,24 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         marginBottom: 20,
     },
+    container: {
+        flex: 1,
+        padding: 20,
+        backgroundColor: colors.background, // Fondo general
+    }, 
+    input: {
+        borderWidth: 1,
+        borderColor: 'gray',
+        padding: 10,
+        borderRadius: 5,
+        marginVertical: 5,
+        width: '100%',
+        backgroundColor: 'white',
+    },
+    linkText: {
+        color: colors.primary,
+        fontSize: 16,
+        marginTop: 10,
+        alignItems: 'center',
+    },
 });

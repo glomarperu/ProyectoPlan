@@ -49,40 +49,50 @@ export const TaskListScreen = () => {
                     data={tasks}
                     keyExtractor={item => item.id}
                     renderItem={({ item }) => (
-                        <Pressable
-                            onPress={() => navigation.navigate('EditTask', { taskId: item.id })}>
-                            <View style={styles.taskItem}>
-                                <Text>
-                                    <Text style={styles.taskName}>Tarea: </Text>
-                                    <Text style={styles.taskName}> {item.name}</Text>
+                        <View style={styles.taskItem}>
+                            <Text>
+                                <Text style={styles.taskName}>Tarea: </Text>
+                                <Text style={styles.taskName}> {item.name}</Text>
+                            </Text>
+                            <Text>
+                                <Text style={[styles.taskNameSecundario]}>Descripción: </Text>
+                                <Text style={styles.taskDescription}> {item.description}</Text>
+                            </Text>
+                            <Text>
+                                <Text style={[styles.taskNameSecundario]}>Estado: </Text>
+                                <Text style={styles.taskDescription}> {item.status}</Text>
+                            </Text>
+                            <Text>
+                                <Text style={[styles.taskNameSecundario]}>Categoría: </Text>
+                                <Text style={styles.taskDescription}> {item.category}</Text>
+                            </Text>
+                            <Text>
+                                <Text style={styles.taskNameSecundario}>
+                                    {item.modificationDate ? 'Fecha Modificación: ' : 'Fecha Creación: '}
                                 </Text>
-                                <Text>
-                                    <Text style={[styles.taskNameSecundario]}>Descripción: </Text>
-                                    <Text style={styles.taskDescription}> {item.description}</Text>
+                                <Text style={styles.taskDescription}>
+                                    {item.modificationDate || item.date}
                                 </Text>
-                                <Text>
-                                    <Text style={[styles.taskNameSecundario]}>Estado: </Text>
-                                    <Text style={styles.taskDescription}> {item.status}</Text>
+                            </Text>
+                            <Text>
+                                <Text style={styles.taskNameSecundario}>
+                                    {item.modificationTime ? 'Hora Modificación: ' : 'Hora Creación: '}
                                 </Text>
-                                <Text>
-                                    <Text style={[styles.taskNameSecundario]}>Categoría: </Text>
-                                    <Text style={styles.taskDescription}> {item.category}</Text>
+                                <Text style={styles.taskDescription}>
+                                    {item.modificationTime || item.time}
                                 </Text>
-                                <Text>
-                                    <Text style={[styles.taskNameSecundario]}>Fecha Creación: </Text>
-                                    <Text style={styles.taskDescription}> {item.date}</Text>
-                                </Text>
-                                <Text>
-                                    <Text style={[styles.taskNameSecundario]}>Hora Creación: </Text>
-                                    <Text style={styles.taskDescription}> {item.time}</Text>
-                                </Text>
-                                <Pressable
-                                    style={styles.deleteButton}
-                                    onPress={() => handleDeleteTask(item.id)}>
-                                    <Text style={styles.buttonText}>Eliminar</Text>
-                                </Pressable>
-                            </View>
-                        </Pressable>
+                            </Text>
+                            <Pressable
+                                style={styles.editButton}
+                                onPress={() => navigation.navigate('EditTask', { taskId: item.id })}>
+                                <Text style={styles.buttonText}>Editar</Text>
+                            </Pressable>
+                            <Pressable
+                                style={styles.deleteButton}
+                                onPress={() => handleDeleteTask(item.id)}>
+                                <Text style={styles.buttonText}>Eliminar</Text>
+                            </Pressable>
+                        </View>
                     )}
                 />
             )}

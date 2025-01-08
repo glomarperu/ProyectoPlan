@@ -11,6 +11,8 @@ interface Task { // interface para definir la estructura de los datos
     time: string;
     status: string;
     category: string;
+    modificationDate?: string; // Fecha de modificación
+    modificationTime?: string; // Hora de modificación
 }
 
 interface TaskContextProps { // interface para definir el contexto

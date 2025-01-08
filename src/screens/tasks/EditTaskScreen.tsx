@@ -14,6 +14,7 @@ export const EditTaskScreen = () => {
 
     const { taskId } = route.params; // obteniendo el id de la tarea a editar
     const navigation = useNavigation(); // obteniendo la navegación actual
+    
     const task = tasks.find(t => t.id === taskId); // obteniendo la tarea a editar
 
     // Estados para los cambios
@@ -28,8 +29,8 @@ export const EditTaskScreen = () => {
             return;
         }
 
-        const date = new Date().toISOString().split('T')[0];
-        const time = new Date().toLocaleTimeString();
+        const modificationDate = new Date().toISOString().split('T')[0]; // obteniendo la fecha de modificación
+        const modificationTime = new Date().toLocaleTimeString(); // obteniendo la hora de modificación
 
         try { // intentando actualizar la tarea
             await updateTask(taskId, { // actualizando la tarea
@@ -37,8 +38,8 @@ export const EditTaskScreen = () => {
                 description,
                 status,
                 category,
-                date,
-                time,
+                modificationDate,
+                modificationTime,
             });
             Alert.alert('Éxito', 'Tarea actualizada correctamente', [
                 {

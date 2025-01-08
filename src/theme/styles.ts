@@ -142,4 +142,11 @@ export const styles = StyleSheet.create({
         marginBottom: 10, // Espacio entre la imagen y el título
         alignSelf: 'center', // Centra la imagen horizontalmente
     },
+    editButton: {
+        backgroundColor: '#4CAF50', // Verde para diferenciarlo del botón de eliminar
+        padding: 10,
+        marginVertical: 5,
+        borderRadius: 5,
+        alignItems: 'center',
+    },
 });

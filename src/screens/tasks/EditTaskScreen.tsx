@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, Text, TextInput, Pressable, Alert } from 'react-native';
+import { View, Text, TextInput, Alert } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { RouteProp, useRoute, useNavigation } from '@react-navigation/native';
 import { TaskContext } from '../../context/TaskContext';

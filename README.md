@@ -1,79 +1,62 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
-
-# Getting Started
-
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+# Planify
+   Este es el proyecto (MVP) desarrollado para el curso Desarrollo de Aplicaciones Móviles 2, donde se creó una aplicación móvil utilizando React Native y TypeScript. La aplicación permite a los usuarios gestionar tareas, realizar autenticación y configurar opciones generales.
 
 ## Step 1: Start the Metro Server
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+**React Native:** Framework para desarrollar aplicaciones móviles de alto rendimiento usando JavaScript y React.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+**TypeScript:** Superset de JavaScript que agrega tipado estático, mejorando la calidad del código y la experiencia de desarrollo.
 
-```bash
-# using npm
-npm start
+**React Navigation:** Biblioteca para manejar la navegación dentro de la aplicación mediante stacks.
 
-# OR using Yarn
-yarn start
-```
+**Firebase:** Plataforma para:
 
-## Step 2: Start your Application
+            Autenticación de usuarios (Firebase Authentication).
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+            Almacenamiento de datos en tiempo real (Firestore).
 
-### For Android
+**Context API:** Para la gestión del estado global de la aplicación.
 
-```bash
-# using npm
-npm run android
 
-# OR using Yarn
-yarn android
-```
+## Objetivo del Proyecto
 
-### For iOS
+El objetivo principal de este proyecto es desarrollar una aplicación móvil funcional que permita a los usuarios gestionar sus tareas diarias de manera eficiente. A través de esta aplicación, se busca consolidar habilidades en React Native, TypeScript y el uso de servicios en la nube como Firebase, garantizando un diseño escalable, modular y fácil de mantener.
 
-```bash
-# using npm
-npm run ios
+### Descripción General
+•	Carpeta src: Contiene todos los elementos principales del proyecto.
+      o	components: Componentes reutilizables, como botones personalizados.
+      o	context: Implementación de Context API para la gestión del estado global.
+      o	img: contiene imágenes que se usan en el proyecto, tipo icono.
+      o	routes: Configuración de la navegación mediante stacks.
+      o	screens: Vistas principales de la aplicación, organizadas por funcionalidades (auth, config, home, tasks).
+      o	theme: Definición de los estilos del proyecto.
+ 
+####Funcionalidades Implementadas
+La aplicación cuenta con las siguientes funcionalidades:
 
-# OR using Yarn
-yarn ios
-```
+1. Autenticación
+•	Pantallas: LoginScreen.tsx, RegisterScreen.tsx
+•	Permite a los usuarios registrarse y acceder mediante credenciales, con la authentication de Firebase.
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+2. Gestión de Tareas
+•	Pantallas:
+o	TaskListScreen.tsx: Lista de tareas.
+o	AddTaskScreen.tsx: Agregar una nueva tarea.
+o	EditTaskScreen.tsx: Editar una tarea existente.
+o	DeleteTaskScreen.tsx: Eliminar una tarea.
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+•	Gestión del Estado: El archivo TaskContext.tsx implementa el Context API para gestionar el estado global de las tareas por cada usuario, evitando redundancias y facilitando la comunicación entre componentes.
+ 
+3. Configuración
+•	Pantalla: ConfigurationScreen.tsx
+•	Configuraciones generales de la aplicación, por ahora está integrado la opción de cerrar sesión. 
 
-## Step 3: Modifying your App
+4. Navegación
+•	Implementada mediante StackNavigation.tsx para facilitar el flujo entre las pantallas.
+•	La pantalla HomeScreen.tsx, es la pantalla principal luego de iniciar sesión o registrarse, allí están implementados los botones de agregar tarea, listar tarea y configuración, y desde allí se hace la navegación a otras pantallas. 
 
-Now that you have successfully run the app, let's modify it.
+5. Tema y Estilo
+•	Definido en theme/theme.ts para mantener una apariencia consistente.
+6. Componentes Reutilizables
+•	ButtonComponent.tsx: Este componente se utiliza para crear botones estilizados y reutilizables en toda la aplicación. Admite personalización mediante props como title, onPress y estilos adicionales.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.

@@ -36,31 +36,32 @@ El objetivo principal de este proyecto es desarrollar una aplicación móvil fun
 La aplicación cuenta con las siguientes funcionalidades:
 
 **1. Autenticación**
-•	Pantallas: LoginScreen.tsx, RegisterScreen.tsx
-•	Permite a los usuarios registrarse y acceder mediante credenciales, con la authentication de Firebase.
+   •	Pantallas: LoginScreen.tsx, RegisterScreen.tsx
+   •	Permite a los usuarios registrarse y acceder mediante credenciales, con la authentication de Firebase.
 
 **2. Gestión de Tareas**
-•	Pantallas:
-o	TaskListScreen.tsx: Lista de tareas.
-o	AddTaskScreen.tsx: Agregar una nueva tarea.
-o	EditTaskScreen.tsx: Editar una tarea existente.
-o	DeleteTaskScreen.tsx: Eliminar una tarea.
+   •	Pantallas:
 
-•	Gestión del Estado: El archivo TaskContext.tsx implementa el Context API para gestionar el estado global de las tareas por cada usuario, evitando redundancias y facilitando la comunicación entre componentes.
+         o	TaskListScreen.tsx: Lista de tareas.
+         o	AddTaskScreen.tsx: Agregar una nueva tarea.
+         o	EditTaskScreen.tsx: Editar una tarea existente.
+         o	DeleteTaskScreen.tsx: Eliminar una tarea.
+
+   •	Gestión del Estado: El archivo TaskContext.tsx implementa el Context API para gestionar el estado global de las tareas por cada usuario, evitando redundancias y facilitando la comunicación entre componentes.
  
 **3. Configuración**
-•	Pantalla: ConfigurationScreen.tsx
-•	Configuraciones generales de la aplicación, por ahora está integrado la opción de cerrar sesión. 
+   •	Pantalla: ConfigurationScreen.tsx
+   •	Configuraciones generales de la aplicación, por ahora está integrado la opción de cerrar sesión. 
 
 **4. Navegación**
-•	Implementada mediante StackNavigation.tsx para facilitar el flujo entre las pantallas.
-•	La pantalla HomeScreen.tsx, es la pantalla principal luego de iniciar sesión o registrarse, allí están implementados los botones de agregar tarea, listar tarea y configuración, y desde allí se hace la navegación a otras pantallas. 
+   •	Implementada mediante StackNavigation.tsx para facilitar el flujo entre las pantallas.
+   •	La pantalla HomeScreen.tsx, es la pantalla principal luego de iniciar sesión o registrarse, allí están implementados los botones de agregar tarea, listar tarea y configuración, y desde allí se hace la navegación a otras pantallas. 
 
 **5. Tema y Estilo**
-•	Definido en theme/theme.ts para mantener una apariencia consistente.
+   •	Definido en theme/theme.ts para mantener una apariencia consistente.
 
 **6. Componentes Reutilizables**
-•	ButtonComponent.tsx: Este componente se utiliza para crear botones estilizados y reutilizables en toda la aplicación. Admite personalización mediante props como title, onPress y estilos adicionales.
+   •	ButtonComponent.tsx: Este componente se utiliza para crear botones estilizados y reutilizables en toda la aplicación. Admite personalización mediante props como title, onPress y estilos adicionales.
 
 ### Mejoras a Futuro
 

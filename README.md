@@ -23,13 +23,14 @@
 El objetivo principal de este proyecto es desarrollar una aplicación móvil funcional que permita a los usuarios gestionar sus tareas diarias de manera eficiente. A través de esta aplicación, se busca consolidar habilidades en React Native, TypeScript y el uso de servicios en la nube como Firebase, garantizando un diseño escalable, modular y fácil de mantener.
 
 ### Descripción General
-•	Carpeta src: Contiene todos los elementos principales del proyecto.
-      o	components: Componentes reutilizables, como botones personalizados.
-      o	context: Implementación de Context API para la gestión del estado global.
-      o	img: contiene imágenes que se usan en el proyecto, tipo icono.
-      o	routes: Configuración de la navegación mediante stacks.
-      o	screens: Vistas principales de la aplicación, organizadas por funcionalidades (auth, config, home, tasks).
-      o	theme: Definición de los estilos del proyecto.
+   •	Carpeta src: Contiene todos los elementos principales del proyecto.
+   
+            o	components: Componentes reutilizables, como botones personalizados.
+            o	context: Implementación de Context API para la gestión del estado global.
+            o	img: contiene imágenes que se usan en el proyecto, tipo icono.
+            o	routes: Configuración de la navegación mediante stacks.
+            o	screens: Vistas principales de la aplicación, organizadas por funcionalidades (auth, config, home, tasks).
+            o	theme: Definición de los estilos del proyecto.
  
 ### Funcionalidades Implementadas
 
@@ -48,6 +49,7 @@ La aplicación cuenta con las siguientes funcionalidades:
          o	DeleteTaskScreen.tsx: Eliminar una tarea.
 
    •	Gestión del Estado: El archivo TaskContext.tsx implementa el Context API para gestionar el estado global de las tareas por cada usuario, evitando redundancias y facilitando la comunicación entre componentes.
+   
  
 **3. Configuración**
    •	Pantalla: ConfigurationScreen.tsx

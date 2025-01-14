@@ -31,7 +31,7 @@ El objetivo principal de este proyecto es desarrollar una aplicación móvil fun
       o	screens: Vistas principales de la aplicación, organizadas por funcionalidades (auth, config, home, tasks).
       o	theme: Definición de los estilos del proyecto.
  
-###Funcionalidades Implementadas
+### Funcionalidades Implementadas
 
 La aplicación cuenta con las siguientes funcionalidades:
 
@@ -62,3 +62,32 @@ o	DeleteTaskScreen.tsx: Eliminar una tarea.
 **6. Componentes Reutilizables**
 •	ButtonComponent.tsx: Este componente se utiliza para crear botones estilizados y reutilizables en toda la aplicación. Admite personalización mediante props como title, onPress y estilos adicionales.
 
+### Mejoras a Futuro
+
+**Conexión con Backend Personalizado:**
+
+Implementar un backend utilizando Node.js y una base de datos SQL como PostgreSQL o MySQL, o MongoDB.
+
+Migrar la gestión de tareas desde Firebase Firestore a esta base de datos para mayor control sobre los datos.
+
+**Notificaciones Push:**
+
+Añadir soporte para notificaciones push utilizando Firebase Cloud Messaging (FCM) para recordar a los usuarios sobre sus tareas pendientes.
+
+**Diseño Mejorado:**
+
+Introducir un diseño más moderno y atractivo utilizando bibliotecas como React Native Paper o React Native Elements.
+
+**Tests Automatizados:**
+
+Implementar pruebas unitarias y de integración para garantizar la estabilidad del proyecto utilizando herramientas como Jest y React Native Testing Library.
+
+**Optimización de la Arquitectura:**
+
+Adaptar la estructura del proyecto a una arquitectura por capas más robusta:
+
+Data: Fuentes remotas y locales.
+
+Domain: Entidades, repositorios y casos de uso.
+
+Presentation: Componentes, vistas y lógica relacionada con la UI.

@@ -104,10 +104,10 @@ export const styles = StyleSheet.create({
         borderRadius: 5,
         alignItems: 'center',
     },
-    logo: {
-        width: 120,
-        height: 180,
-        marginBottom: 20, // Espacio entre la imagen y el título
+    logo: {        
+        width: 200,
+        height: 150,
+        marginBottom: 10, // Espacio entre la imagen y el título
         alignSelf: 'center', // Centra la imagen horizontalmente
     },
     cardContainer: {

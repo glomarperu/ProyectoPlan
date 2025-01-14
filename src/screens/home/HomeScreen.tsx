@@ -11,12 +11,19 @@ export const HomeScreen = () => {  // se exporta la funcion
   const navigation = useNavigation<StackNavigationProp<RootStackParams>>(); // se usa el hook para obtener la navegacion
   const [userName, setUserName] = useState<string | null>(null); // se declara el estado para el nombre de usuario
 
-  useEffect(() => { // se usa el hook para obtener el nombre de usuario
-    const currentUser = auth().currentUser; // se obtiene el usuario actual
-    if (currentUser) { // si el usuario existe
-      setUserName(currentUser.displayName || currentUser.email); // se establece el nombre de usuario
+  useEffect(() => {
+    const currentUser = auth().currentUser; // Obtiene al usuario actual
+    if (!currentUser) {
+      // Si no hay usuario autenticado, redirigir al Login
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Login' }],
+      });
+    } else {
+      // Si hay usuario, establecer el nombre
+      setUserName(currentUser.displayName || currentUser.email);
     }
-  }, []); // se ejecuta solo una vez al cargar la pantalla
+  }, [navigation]);
 
   // eliminos haciones de consola y agrego las funciones del ButtonComponent para ejecutar las vistas
   return (

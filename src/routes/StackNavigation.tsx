@@ -28,32 +28,24 @@ interface StackNavigationProps { // se crea el tipo de dato para la navegación
 
 export const StackNavigation = ({ user }: StackNavigationProps) => { // se crea la función de navegación
     const navigation = useNavigation(); // se obtiene la navegación
-    
+
     useEffect(() => { // se crea el efecto para la navegación
         const unsubscribe = auth().onAuthStateChanged((user) => { // se obtiene el estado de autenticación
             if (!user) { // si no hay usuario
                 navigation.dispatch( // se despliega la pantalla de login
                     CommonActions.reset({ // se resetea la navegación
-                        index: 0, 
-                        routes: [{ name: 'Login' }], 
+                        index: 0,
+                        routes: [{ name: 'Login' }],
                     })
                 );
             }
         });
-        return unsubscribe; 
+        return unsubscribe;
     }, [navigation]); // se obtiene la navegación para el efecto
 
     return (
-        <Stack.Navigator> 
-            {user ? ( 
-                <>
-                    <Stack.Screen name="Home" component={HomeScreen} />
-                    <Stack.Screen name="AddTask" component={AddTaskScreen} />
-                    <Stack.Screen name="TaskList" component={TaskListScreen} />
-                    <Stack.Screen name='EditTask' component={EditTaskScreen} />
-                    <Stack.Screen name="Config" component={ConfigurationScreen} />
-                </>
-            ) : ( 
+        <Stack.Navigator>
+            {user === null ? ( 
                 <>
                     <Stack.Screen
                         name="Login"
@@ -61,6 +53,14 @@ export const StackNavigation = ({ user }: StackNavigationProps) => { // se crea 
                         options={{ headerShown: false }}
                     />
                     <Stack.Screen name="Register" component={RegisterScreen} />
+                </>
+            ) : (
+                <>
+                    <Stack.Screen name="Home" component={HomeScreen} />
+                    <Stack.Screen name="AddTask" component={AddTaskScreen} />
+                    <Stack.Screen name="TaskList" component={TaskListScreen} />
+                    <Stack.Screen name="EditTask" component={EditTaskScreen} />
+                    <Stack.Screen name="Config" component={ConfigurationScreen} />
                 </>
             )}
         </Stack.Navigator>

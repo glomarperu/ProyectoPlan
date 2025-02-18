@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Pressable, Alert } from 'react-native';
+import { View, Text, TextInput, Pressable, Alert, Image } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParams } from '../../navigator/StackNavigation';
 import { ButtonComponent } from '../../components/ButtonComponent';
@@ -36,6 +36,9 @@ export const LoginScreen = ({ navigation }: Props) => {
 
     return (
         <View style={styles.container}>
+            <Image 
+                source={require('../../img/logo.png')} 
+                style={styles.logo}/>
             <Text style={styles.title}>Iniciar Sesión</Text>
             <TextInput
                 style={styles.input}

@@ -1,5 +1,5 @@
 export interface Task {
-    _id?: string; // Asegúrate de que _id esté definido como opcional
+    _id?: string; 
     name: string;
     description: string;
     date: string;

@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { View, Text, FlatList, Pressable, Alert } from 'react-native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { styles } from '../theme/styles';
-import { useTasks } from '../hooks/useTasks';
-import { ButtonComponent } from '../components/ButtonComponent';
-import { RootStackParams } from '../navigator/StackNavigation';
+import { styles } from '../../theme/styles';
+import { useTasks } from '../../hooks/useTasks';
+import { ButtonComponent } from '../../components/ButtonComponent';
+import { RootStackParams } from '../../navigator/StackNavigation';
 
 
 type TaskListScreenNavigationProp = StackNavigationProp<RootStackParams, 'TaskList'>;
@@ -37,7 +37,7 @@ export const TaskListScreen = ({ navigation }: Props) => {
             ) : (
                 <FlatList
                     data={tasks}
-                    keyExtractor={(item) => item._id || ''} // Usa item._id en lugar de item.id
+                    keyExtractor={(item) => item._id || ''} 
                     renderItem={({ item }) => (
                         <View style={styles.taskItem}>
                             <Text style={styles.taskName}>{item.name}</Text>
@@ -47,7 +47,7 @@ export const TaskListScreen = ({ navigation }: Props) => {
                             <Pressable
                                 style={styles.editButton}
                                 onPress={() => {
-                                    if (item._id) { // Usa item._id en lugar de item.id
+                                    if (item._id) { 
                                         navigation.navigate('EditTask', { taskId: item._id });
                                     } else {
                                         Alert.alert('Error', 'No se pudo encontrar el ID de la tarea');
@@ -59,7 +59,7 @@ export const TaskListScreen = ({ navigation }: Props) => {
                             <Pressable
                                 style={styles.deleteButton}
                                 onPress={() => {
-                                    if (item._id) { // Usa item._id en lugar de item.id
+                                    if (item._id) { 
                                         handleDeleteTask(item._id);
                                     } else {
                                         Alert.alert('Error', 'No se pudo encontrar el ID de la tarea');

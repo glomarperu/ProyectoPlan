@@ -12,10 +12,9 @@ export const ConfigurationScreen = () => {
 
     const logout = async () => {
         try {
-            // Eliminar el token de AsyncStorage
+           
             await AsyncStorage.removeItem('token');
             
-            // Redirigir al usuario a la pantalla de inicio de sesión
             navigation.dispatch(
                 CommonActions.reset({
                     index: 0,

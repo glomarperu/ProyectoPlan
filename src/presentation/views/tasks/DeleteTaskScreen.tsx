@@ -1,18 +1,18 @@
 import React from 'react';
 import { View, Text, Alert } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
-import { RootStackParams } from '../navigator/StackNavigation';
-import { useTasks } from '../hooks/useTasks';
-import { styles } from '../theme/styles';
-import { ButtonComponent } from '../components/ButtonComponent';
+import { RootStackParams } from '../../navigator/StackNavigation';
+import { useTasks } from '../../hooks/useTasks';
+import { styles } from '../../theme/styles';
+import { ButtonComponent } from '../../components/ButtonComponent';
 
-// Define el tipo de la ruta
+
 type DeleteTaskScreenRouteProp = RouteProp<RootStackParams, 'DeleteTask'>;
 
 export const DeleteTaskScreen = () => {
-    // Usa useRoute para obtener los parámetros de la ruta
+    
     const route = useRoute<DeleteTaskScreenRouteProp>();
-    const { taskId } = route.params; // Ahora TypeScript sabe que taskId es de tipo string
+    const { taskId } = route.params; 
 
     const { deleteTask } = useTasks();
 

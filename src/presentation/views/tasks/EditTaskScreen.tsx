@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Alert } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import { RouteProp, useRoute } from '@react-navigation/native';
-import { RootStackParams } from '../navigator/StackNavigation';
-import { useTasks } from '../hooks/useTasks';
-import { styles } from '../theme/styles';
-import { ButtonComponent } from '../components/ButtonComponent';
+import { RootStackParams } from '../../navigator/StackNavigation';
+import { useTasks } from '../../hooks/useTasks';
+import { styles } from '../../theme/styles';
+import { ButtonComponent } from '../../components/ButtonComponent';
 
 type EditTaskScreenRouteProp = RouteProp<RootStackParams, 'EditTask'>;
 
@@ -13,7 +13,7 @@ export const EditTaskScreen = () => {
     const route = useRoute<EditTaskScreenRouteProp>();
     const { taskId } = route.params;
     const { tasks, updateTask } = useTasks();
-    const task = tasks.find((t) => t._id === taskId); // Usa t._id en lugar de t.id
+    const task = tasks.find((t) => t._id === taskId); 
 
     const [name, setName] = useState(task?.name || '');
     const [description, setDescription] = useState(task?.description || '');

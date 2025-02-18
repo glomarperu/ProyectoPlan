@@ -2,15 +2,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { LoginScreen } from '../views/auth/LoginScreen';
 import { RegisterScreen } from '../views/auth/RegisterScreen';
 import { HomeScreen } from '../views/home/HomeScreen';
-import { AddTaskScreen } from '../tasks/AddTaskScreen';
-import { EditTaskScreen } from '../tasks/EditTaskScreen';
-import { TaskListScreen } from '../tasks/TaskListScreen';
+import { AddTaskScreen } from '../views/tasks/AddTaskScreen';
+import { EditTaskScreen } from '../views/tasks/EditTaskScreen';
+import { TaskListScreen } from '../views/tasks/TaskListScreen';
 import { ConfigurationScreen } from '../views/config/ConfigurationScreen';
-import { DeleteTaskScreen } from '../tasks/DeleteTaskScreen';
+import { DeleteTaskScreen } from '../views/tasks/DeleteTaskScreen';
 
-
-
-// Define los parámetros de la ruta DeleteTask
 export type RootStackParams = {
     Login: undefined;
     Register: undefined;
@@ -19,7 +16,7 @@ export type RootStackParams = {
     EditTask: { taskId: string };
     TaskList: undefined;
     Config: undefined;
-    DeleteTask: { taskId: string }; // Agrega esta línea
+    DeleteTask: { taskId: string }; 
 };
 
 const Stack = createStackNavigator<RootStackParams>();
@@ -27,7 +24,7 @@ const Stack = createStackNavigator<RootStackParams>();
 export const StackNavigation = () => {
     return (
         <Stack.Navigator initialRouteName="Login">
-            {/* Define todas las pantallas aquí */}
+            {}
             <Stack.Screen
                 name="Login"
                 component={LoginScreen}

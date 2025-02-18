@@ -4,10 +4,10 @@ import { Picker } from '@react-native-picker/picker';
 import DatePicker from 'react-native-date-picker';
 import { StackNavigationProp } from '@react-navigation/stack';
 import PushNotification from 'react-native-push-notification';
-import { RootStackParams } from '../navigator/StackNavigation';
-import { useTasks } from '../hooks/useTasks';
-import { styles } from '../theme/styles';
-import { ButtonComponent } from '../components/ButtonComponent';
+import { RootStackParams } from '../../navigator/StackNavigation';
+import { useTasks } from '../../hooks/useTasks';
+import { styles } from '../../theme/styles';
+import { ButtonComponent } from '../../components/ButtonComponent';
 
 const { AlarmPermissionModule } = NativeModules;
 
@@ -26,18 +26,17 @@ export const AddTaskScreen = ({ navigation }: Props) => {
     const [open, setOpen] = useState(false);
     const { addTask } = useTasks();
 
-    // Función para abrir la configuración de la aplicación
+   
     const requestExactAlarmPermission = async () => {
         if (Platform.OS === 'android' && Platform.Version >= 31) {
             try {
-                await Linking.openSettings(); // Abre la configuración de la aplicación
+                await Linking.openSettings(); 
             } catch (error) {
                 console.error("No se pudo abrir la configuración:", error);
             }
         }
     };
 
-    // Función para verificar si el permiso SCHEDULE_EXACT_ALARM está otorgado
     const checkExactAlarmPermission = async () => {
         if (Platform.OS === 'android' && Platform.Version >= 31) {
             try {
@@ -48,10 +47,9 @@ export const AddTaskScreen = ({ navigation }: Props) => {
                 return false;
             }
         }
-        return true; // No se requiere en versiones anteriores a Android 12
+        return true; 
     };
 
-    // Función para programar la notificación
     const scheduleNotification = async (task: any) => {
         const hasPermission = await checkExactAlarmPermission();
         if (!hasPermission) {
@@ -67,11 +65,11 @@ export const AddTaskScreen = ({ navigation }: Props) => {
         }
 
         const notificationTime = new Date(task.scheduledDate);
-        notificationTime.setMinutes(notificationTime.getMinutes() - 10); // 10 minutos antes
+        notificationTime.setMinutes(notificationTime.getMinutes() - 10); 
 
         try {
             PushNotification.localNotificationSchedule({
-                channelId: "default-channel-id", // Asegúrate de configurar el canal de notificaciones
+                channelId: "default-channel-id", 
                 title: "Recordatorio de Tarea",
                 message: `La tarea "${task.name}" está programada para pronto.`,
                 date: notificationTime,
@@ -99,12 +97,12 @@ export const AddTaskScreen = ({ navigation }: Props) => {
             category,
             date: date.toISOString().split('T')[0],
             time: date.toLocaleTimeString(),
-            scheduledDate: date, // Fecha y hora programada
+            scheduledDate: date, 
         };
 
         try {
             await addTask(newTask);
-            await scheduleNotification(newTask); // Programar la notificación
+            await scheduleNotification(newTask); 
             Alert.alert('Éxito', 'Tarea agregada correctamente');
             navigation.goBack();
         } catch (error) {
